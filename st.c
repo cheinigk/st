@@ -2065,6 +2065,56 @@ externalpipe(const Arg *arg)
 }
 
 void
+togglecolorscheme(const Arg *arg)
+{
+	if (arg->i) == 0 { /* Dark scheme */
+		/* 8 normal colors */
+		colorname[ 0] = "#3b4252"; /* black   */
+		colorname[ 1] = "#bf616a"; /* red     */
+		colorname[ 2] = "#a3be8c"; /* green   */
+		colorname[ 3] = "#ebcb8b"; /* yellow  */
+		colorname[ 4] = "#81a1c1"; /* blue    */
+		colorname[ 5] = "#b48ead"; /* magenta */
+		colorname[ 6] = "#88c0d0"; /* cyan    */
+		colorname[ 7] = "#e5e9f0"; /* white   */
+		/* 8 bright colors */
+		colorname[ 8] = "#4c566a"; /* black   */
+		colorname[ 9] = "#bf616a"; /* red     */
+		colorname[10] = "#a3be8c"; /* green   */
+		colorname[11] = "#ebcb8b"; /* yellow  */
+		colorname[12] = "#81a1c1"; /* blue    */
+		colorname[13] = "#b48ead"; /* magenta */
+		colorname[14] = "#8fbcbb"; /* cyan    */
+		colorname[15] = "#eceff4"; /* white   */
+		/* more colors can be added after 255 to use with DefaultXX */
+		colorname[256] = "#2e3440"; /* background */
+		colorname[257] = "#d8dee9"; /* foreground */
+	} else { /* Light scheme */
+		/* 8 normal colors */
+		colorname[ 0] = "#3b4252"; /* black   */
+		colorname[ 1] = "#bf616a"; /* red     */
+		colorname[ 2] = "#a3be8c"; /* green   */
+		colorname[ 3] = "#ebcb8b"; /* yellow  */
+		colorname[ 4] = "#81a1c1"; /* blue    */
+		colorname[ 5] = "#b48ead"; /* magenta */
+		colorname[ 6] = "#88c0d0"; /* cyan    */
+		colorname[ 7] = "#e5e9f0"; /* white   */
+		/* 8 bright colors */
+		colorname[ 8] = "#4c566a"; /* black   */
+		colorname[ 9] = "#bf616a"; /* red     */
+		colorname[10] = "#a3be8c"; /* green   */
+		colorname[11] = "#ebcb8b"; /* yellow  */
+		colorname[12] = "#81a1c1"; /* blue    */
+		colorname[13] = "#b48ead"; /* magenta */
+		colorname[14] = "#8fbcbb"; /* cyan    */
+		colorname[15] = "#eceff4"; /* white   */
+		/* more colors can be added after 255 to use with DefaultXX */
+		colorname[256] = "#eceff4"; /* background */
+		colorname[257] = "#2e3440"; /* foreground */
+	}
+}
+
+void
 strdump(void)
 {
 	size_t i;
