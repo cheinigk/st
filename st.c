@@ -2059,7 +2059,9 @@ externalpipe(const Arg *arg)
 void
 togglecolorscheme(const Arg *arg)
 {
-	if (arg->i) == 0 { /* Dark scheme */
+	static int is_light = 0;
+	const char ** colorname = (const char **)arg->v;
+	if (is_light == 1) { /* Switch to dark scheme */
 		/* 8 normal colors */
 		colorname[ 0] = "#3b4252"; /* black   */
 		colorname[ 1] = "#bf616a"; /* red     */
@@ -2081,7 +2083,9 @@ togglecolorscheme(const Arg *arg)
 		/* more colors can be added after 255 to use with DefaultXX */
 		colorname[256] = "#2e3440"; /* background */
 		colorname[257] = "#d8dee9"; /* foreground */
-	} else { /* Light scheme */
+
+		is_light = 0;
+	} else { /* Switch to light scheme */
 		/* 8 normal colors */
 		colorname[ 0] = "#3b4252"; /* black   */
 		colorname[ 1] = "#bf616a"; /* red     */
@@ -2103,7 +2107,11 @@ togglecolorscheme(const Arg *arg)
 		/* more colors can be added after 255 to use with DefaultXX */
 		colorname[256] = "#eceff4"; /* background */
 		colorname[257] = "#2e3440"; /* foreground */
+		
+		is_light = 1;
 	}
+	xloadcols();
+	redraw();
 }
 
 void
