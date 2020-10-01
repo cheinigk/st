@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+
 
 /*
  * appearance
@@ -234,6 +234,8 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
  { TERMMOD,              XK_U,           externalpipe,   { .v = openurlcmd } },
  { TERMMOD,              XK_I,           externalpipe,   { .v = copyurlcmd } },
+  { TERMMOD,              XK_L,           togglecolorscheme,   { .i = 0 } },
+  { TERMMOD,              XK_D,           togglecolorscheme,   { .i = 1 } },
 };
 
 /*
