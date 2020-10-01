@@ -110,7 +110,7 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -217,25 +217,24 @@ static char *copyurlcmd[] = { "/bin/sh", "-c",
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
- { TERMMOD,              XK_U,           externalpipe,   { .v = openurlcmd } },
- { TERMMOD,              XK_I,           externalpipe,   { .v = copyurlcmd } },
-  { TERMMOD,              XK_L,           togglecolorscheme,   { .i = 0 } },
-  { TERMMOD,              XK_D,           togglecolorscheme,   { .i = 1 } },
+	/* mask                 keysym          function             argument */
+	{ XK_ANY_MOD,           XK_Break,       sendbreak,           {.i =  0} },
+	{ ControlMask,          XK_Print,       toggleprinter,       {.i =  0} },
+	{ ShiftMask,            XK_Print,       printscreen,         {.i =  0} },
+	{ XK_ANY_MOD,           XK_Print,       printsel,            {.i =  0} },
+	{ TERMMOD,              XK_Prior,       zoom,                {.f = +1} },
+	{ TERMMOD,              XK_Next,        zoom,                {.f = -1} },
+	{ TERMMOD,              XK_Home,        zoomreset,           {.f =  0} },
+	{ TERMMOD,              XK_C,           clipcopy,            {.i =  0} },
+	{ TERMMOD,              XK_V,           clippaste,           {.i =  0} },
+	{ TERMMOD,              XK_Y,           selpaste,            {.i =  0} },
+	{ ShiftMask,            XK_Insert,      selpaste,            {.i =  0} },
+	{ TERMMOD,              XK_Num_Lock,    numlock,             {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,           {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,         {.i = -1} },
+  { TERMMOD,              XK_U,           externalpipe,        { .v = openurlcmd } },
+  { TERMMOD,              XK_I,           externalpipe,        { .v = copyurlcmd } },
+  { TERMMOD,              XK_S,           togglecolorscheme,   { .v = colorname } },
 };
 
 /*
